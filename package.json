@@ -1,11 +1,16 @@
 {
-  "name": "bachelorthesis_configschema",
+  "name": "@mysterionautotronic/config-schema",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Config Schema for Bachelor Thesis",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "build": "tsup src/index.ts --dts --tsconfig tsconfig.build.json --format esm,cjs",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +25,8 @@
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "zod": "^3.25.71"
   }
 }
